@@ -140,6 +140,7 @@ exports.videoUpload = async (req,res) =>{
             videoUrl:response.secure_url
 
          });
+          await fileData.save(); 
 
          res.status(200).json({
             message:"video uploaded successfully",
@@ -188,7 +189,8 @@ exports.imgReducerUp = async (req,res) =>{
             email,
             imageUrl: response.secure_url
 
-         }).save();
+         });
+          await fileData.save(); 
 
          res.status(200).json({
             message:"image uploaded successfully",
